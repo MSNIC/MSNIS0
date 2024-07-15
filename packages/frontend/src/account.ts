@@ -310,6 +310,21 @@ export async function openAccountMenu(opts: {
 			icon: 'ti ti-users',
 			text: i18n.ts.manageAccounts,
 			to: '/settings/accounts',
+		}, {
+			type: 'button',
+			icon: 'ti ti-logout',
+			text: i18n.ts.logout,
+			action: async () => {
+				const { canceled } = await os.confirm({
+					type: 'warning',
+					text: i18n.ts.logoutConfirm,
+				});
+				if (canceled) return;
+				os.alert({ type: 'info', title: 'MSNIC Premiumの機能です', text: 'これはMSNIC Premium(38,580yen/month)の機能です。平民アカウントではご利用いただけません。' });
+				/*signout();*/
+				return;
+			},
+			danger: true,
 		}]], ev.currentTarget ?? ev.target, {
 			align: 'left',
 		});
