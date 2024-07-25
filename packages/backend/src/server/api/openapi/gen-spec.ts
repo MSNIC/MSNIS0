@@ -15,12 +15,11 @@ export function genOpenapiSpec(config: Config, includeSelfRef = false) {
 		info: {
 			version: config.version,
 			title: 'Misskey API',
-			'x-logo': { url: '/static-assets/api-doc.png' },
 		},
 
 		externalDocs: {
 			description: 'Repository',
-			url: 'https://github.com/misskey-dev/misskey',
+			url: 'https://github.com/MSNIC/MSNIS0',
 		},
 
 		servers: [{
@@ -98,7 +97,7 @@ export function genOpenapiSpec(config: Config, includeSelfRef = false) {
 			description: desc,
 			externalDocs: {
 				description: 'Source code',
-				url: `https://github.com/misskey-dev/misskey/blob/develop/packages/backend/src/server/api/endpoints/${endpoint.name}.ts`,
+				url: `https://github.com/MSNIC/MSNIS0/blob/develop/packages/backend/src/server/api/endpoints/${endpoint.name}.ts`,
 			},
 			...(endpoint.meta.tags ? {
 				tags: [endpoint.meta.tags[0]],
