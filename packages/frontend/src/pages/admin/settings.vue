@@ -216,83 +216,77 @@ SPDX-License-Identifier: AGPL-3.0-only
 						</FormSection>
 					</div>
 				</FormSuspense>
-				</FormSection>
-
-				<FormSection>
-					<template #label>{{ i18n.ts._urlPreviewSetting.title }}</template>
-
-					<div class="_gaps_m">
-						<MkSwitch v-model="urlPreviewEnabled">
-							<template #label>{{ i18n.ts._urlPreviewSetting.enable }}</template>
-						</MkSwitch>
-
-						<MkSwitch v-model="urlPreviewRequireContentLength">
-							<template #label>{{ i18n.ts._urlPreviewSetting.requireContentLength }}</template>
-							<template #caption>{{ i18n.ts._urlPreviewSetting.requireContentLengthDescription }}</template>
-						</MkSwitch>
-
-						<MkInput v-model="urlPreviewMaximumContentLength" type="number">
-							<template #label>{{ i18n.ts._urlPreviewSetting.maximumContentLength }}</template>
-							<template #caption>{{ i18n.ts._urlPreviewSetting.maximumContentLengthDescription }}</template>
-						</MkInput>
-
-						<MkInput v-model="urlPreviewTimeout" type="number">
-							<template #label>{{ i18n.ts._urlPreviewSetting.timeout }}</template>
-							<template #caption>{{ i18n.ts._urlPreviewSetting.timeoutDescription }}</template>
-						</MkInput>
-
-						<MkInput v-model="urlPreviewUserAgent" type="text">
-							<template #label>{{ i18n.ts._urlPreviewSetting.userAgent }}</template>
-							<template #caption>{{ i18n.ts._urlPreviewSetting.userAgentDescription }}</template>
-						</MkInput>
-
-						<div>
-							<MkInput v-model="urlPreviewSummaryProxyUrl" type="text">
-								<template #label>{{ i18n.ts._urlPreviewSetting.summaryProxy }}</template>
-								<template #caption>[{{ i18n.ts.notUsePleaseLeaveBlank }}] {{ i18n.ts._urlPreviewSetting.summaryProxyDescription }}</template>
-							</MkInput>
-
-							<div :class="$style.subCaption">
-								{{ i18n.ts._urlPreviewSetting.summaryProxyDescription2 }}
-								<ul style="padding-left: 20px; margin: 4px 0">
-									<li>{{ i18n.ts._urlPreviewSetting.timeout }} / key:timeout</li>
-									<li>{{ i18n.ts._urlPreviewSetting.maximumContentLength }} / key:contentLengthLimit</li>
-									<li>{{ i18n.ts._urlPreviewSetting.requireContentLength }} / key:contentLengthRequired</li>
-									<li>{{ i18n.ts._urlPreviewSetting.userAgent }} / key:userAgent</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</FormSection>
-
-				<FormSection>
-					<template #label>{{ i18n.ts.abuseReports }}</template>
-
-					<div class="_gaps_m">
-						<MkInput v-model="emailToReceiveAbuseReport" type="email">
-							<template #prefix><i class="ti ti-mail"></i></template>
-							<template #label>{{ i18n.ts.emailToReceiveAbuseReport }}</template>
-							<template #caption>{{ i18n.ts.emailToReceiveAbuseReportCaption }}</template>
-						</MkInput>
-					</div>
-				</FormSection>
 			</div>
-			</FormSuspense>
-		</mkspacer>
-	</mkstickycontainer>
-</div>
-<div v-else>
-	<MkInfo warn>この管理設定は<strong>管理者権限</strong>が必要です。</MkInfo>
-</div>
-</MkSpacer>
-<template #footer>
-	<div :class="$style.footer">
-		<MkSpacer :contentMax="700" :marginMin="16" :marginMax="16">
-			<MkButton primary rounded @click="save"><i class="ti ti-check"></i> {{ i18n.ts.save }}</MkButton>
+			<div v-else>
+				<MkInfo warn>この管理設定は<strong>管理者権限</strong>が必要です。</MkInfo>
+			</div>
 		</MkSpacer>
-	</div>
-</template>
-</MkStickyContainer>
+		<FormSection>
+			<template #label>{{ i18n.ts._urlPreviewSetting.title }}</template>
+
+			<div class="_gaps_m">
+				<MkSwitch v-model="urlPreviewEnabled">
+					<template #label>{{ i18n.ts._urlPreviewSetting.enable }}</template>
+				</MkSwitch>
+
+				<MkSwitch v-model="urlPreviewRequireContentLength">
+					<template #label>{{ i18n.ts._urlPreviewSetting.requireContentLength }}</template>
+					<template #caption>{{ i18n.ts._urlPreviewSetting.requireContentLengthDescription }}</template>
+				</MkSwitch>
+
+				<MkInput v-model="urlPreviewMaximumContentLength" type="number">
+					<template #label>{{ i18n.ts._urlPreviewSetting.maximumContentLength }}</template>
+					<template #caption>{{ i18n.ts._urlPreviewSetting.maximumContentLengthDescription }}</template>
+				</MkInput>
+
+				<MkInput v-model="urlPreviewTimeout" type="number">
+					<template #label>{{ i18n.ts._urlPreviewSetting.timeout }}</template>
+					<template #caption>{{ i18n.ts._urlPreviewSetting.timeoutDescription }}</template>
+				</MkInput>
+
+				<MkInput v-model="urlPreviewUserAgent" type="text">
+					<template #label>{{ i18n.ts._urlPreviewSetting.userAgent }}</template>
+					<template #caption>{{ i18n.ts._urlPreviewSetting.userAgentDescription }}</template>
+				</MkInput>
+
+				<div>
+					<MkInput v-model="urlPreviewSummaryProxyUrl" type="text">
+						<template #label>{{ i18n.ts._urlPreviewSetting.summaryProxy }}</template>
+						<template #caption>[{{ i18n.ts.notUsePleaseLeaveBlank }}] {{ i18n.ts._urlPreviewSetting.summaryProxyDescription }}</template>
+					</MkInput>
+
+					<div :class="$style.subCaption">
+						{{ i18n.ts._urlPreviewSetting.summaryProxyDescription2 }}
+						<ul style="padding-left: 20px; margin: 4px 0">
+							<li>{{ i18n.ts._urlPreviewSetting.timeout }} / key:timeout</li>
+							<li>{{ i18n.ts._urlPreviewSetting.maximumContentLength }} / key:contentLengthLimit</li>
+							<li>{{ i18n.ts._urlPreviewSetting.requireContentLength }} / key:contentLengthRequired</li>
+							<li>{{ i18n.ts._urlPreviewSetting.userAgent }} / key:userAgent</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</FormSection>
+
+		<FormSection>
+			<template #label>{{ i18n.ts.abuseReports }}</template>
+
+			<div class="_gaps_m">
+				<MkInput v-model="emailToReceiveAbuseReport" type="email">
+					<template #prefix><i class="ti ti-mail"></i></template>
+					<template #label>{{ i18n.ts.emailToReceiveAbuseReport }}</template>
+					<template #caption>{{ i18n.ts.emailToReceiveAbuseReportCaption }}</template>
+				</MkInput>
+			</div>
+		</FormSection>
+		<template #footer>
+			<div :class="$style.footer">
+				<MkSpacer :contentMax="700" :marginMin="16" :marginMax="16">
+					<MkButton primary rounded @click="save"><i class="ti ti-check"></i> {{ i18n.ts.save }}</MkButton>
+				</MkSpacer>
+			</div>
+		</template>
+	</MkStickyContainer>
 </div>
 </template>
 
